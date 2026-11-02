@@ -1,0 +1,105 @@
+export const SUPPORTED_CHAINS = [
+  { id: "ethereum", name: "Ethereum", symbol: "ETH", color: "#627EEA", type: "evm" },
+  { id: "arbitrum", name: "Arbitrum", symbol: "ARB", color: "#2D374B", type: "evm" },
+  { id: "base", name: "Base", symbol: "BASE", color: "#0052FF", type: "evm" },
+  { id: "polygon", name: "Polygon", symbol: "MATIC", color: "#8247E5", type: "evm" },
+  { id: "optimism", name: "Optimism", symbol: "OP", color: "#FF0420", type: "evm" },
+  { id: "avalanche", name: "Avalanche", symbol: "AVAX", color: "#E84142", type: "evm" },
+  { id: "bsc", name: "BNB Chain", symbol: "BNB", color: "#F0B90B", type: "evm" },
+  { id: "gnosis", name: "Gnosis", symbol: "xDAI", color: "#04795B", type: "evm" },
+  { id: "near", name: "NEAR", symbol: "NEAR", color: "#00C08B", type: "near" },
+  { id: "bitcoin", name: "Bitcoin", symbol: "BTC", color: "#F7931A", type: "btc" },
+  { id: "tron", name: "Tron", symbol: "TRX", color: "#FF0013", type: "tron" },
+  { id: "ton", name: "TON", symbol: "TON", color: "#0098EA", type: "ton" },
+  { id: "stellar", name: "Stellar", symbol: "XLM", color: "#000000", type: "stellar" },
+  { id: "sui", name: "Sui", symbol: "SUI", color: "#4DA2FF", type: "sui" },
+  { id: "monad", name: "Monad", symbol: "MON", color: "#836EF9", type: "evm" },
+  { id: "solana", name: "Solana", symbol: "SOL", color: "#9945FF", type: "solana" },
+] as const;
+
+export const POPULAR_TOKENS = [
+  { symbol: "USDC", name: "USD Coin", decimals: 6, color: "#2775CA" },
+  { symbol: "USDT", name: "Tether", decimals: 6, color: "#26A17B" },
+  { symbol: "SOL", name: "Solana", decimals: 9, color: "#9945FF" },
+  { symbol: "ETH", name: "Ethereum", decimals: 18, color: "#627EEA" },
+  { symbol: "BTC", name: "Bitcoin", decimals: 8, color: "#F7931A" },
+  { symbol: "NEAR", name: "NEAR Protocol", decimals: 24, color: "#00C08B" },
+] as const;
+
+export const DEFI_PROTOCOLS = [
+  {
+    id: "marinade",
+    name: "Marinade Finance",
+    description: "Liquid staking for SOL",
+    apy: "7.2%",
+    action: "Stake",
+    category: "staking",
+    logo: "🥩",
+    color: "from-green-500 to-teal-400",
+  },
+  {
+    id: "jito",
+    name: "Jito",
+    description: "MEV-powered SOL staking",
+    apy: "7.8%",
+    action: "Stake",
+    category: "staking",
+    logo: "⚡",
+    color: "from-purple-500 to-indigo-400",
+  },
+  {
+    id: "marginfi",
+    name: "marginfi",
+    description: "Lending & borrowing on Solana",
+    apy: "5.4%",
+    action: "Lend",
+    category: "lending",
+    logo: "🏦",
+    color: "from-blue-500 to-cyan-400",
+  },
+  {
+    id: "solend",
+    name: "Solend",
+    description: "Decentralized lending protocol",
+    apy: "4.9%",
+    action: "Lend",
+    category: "lending",
+    logo: "💰",
+    color: "from-orange-500 to-amber-400",
+  },
+  {
+    id: "raydium",
+    name: "Raydium",
+    description: "AMM & liquidity on Solana",
+    apy: "12.3%",
+    action: "LP",
+    category: "liquidity",
+    logo: "🌊",
+    color: "from-cyan-500 to-blue-400",
+  },
+  {
+    id: "orca",
+    name: "Orca",
+    description: "User-friendly DEX on Solana",
+    apy: "9.7%",
+    action: "LP",
+    category: "liquidity",
+    logo: "🐋",
+    color: "from-yellow-500 to-orange-400",
+  },
+] as const;
+
+export const TX_STATUSES = {
+  PENDING: "pending",
+  DEPOSITED: "deposited",
+  PROCESSING: "processing",
+  COMPLETED: "completed",
+  FAILED: "failed",
+  REFUNDED: "refunded",
+} as const;
+
+export const AURORA_CONFIG = {
+  SWAP_API_BASE: process.env.NEXT_PUBLIC_ONECLICK_API_BASE || "https://1click.chaindefuser.com",
+  WIDGET_API_KEY: process.env.NEXT_PUBLIC_AURORA_API_KEY || "",
+  FEE_BPS: parseInt(process.env.NEXT_PUBLIC_FEE_BPS || "50"),
+} as const;

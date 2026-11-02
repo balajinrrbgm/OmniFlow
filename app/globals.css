@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --bg-primary: #0b0d15;
+    --bg-secondary: #12141a;
+    --bg-card: #1e2128;
+    --border-color: #2a2d35;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --accent-purple: #9945FF;
+    --accent-green: #14F195;
+    --aurora-green: #78D64B;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-purple) var(--bg-secondary);
+  }
+
+  *::-webkit-scrollbar { width: 6px; }
+  *::-webkit-scrollbar-track { background: var(--bg-secondary); }
+  *::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 3px; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-aurora-card/80 backdrop-blur-xl border border-aurora-border rounded-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-solana-gradient;
+  }
+
+  .glow-border {
+    position: relative;
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #9945FF, #14F195);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px -10px rgba(153, 69, 255, 0.5);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl font-semibold text-white border border-aurora-border bg-aurora-card hover:bg-aurora-border transition-all duration-300;
+  }
+
+  .chain-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-aurora-card border border-aurora-border;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-dot.active { @apply bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.5)]; }
+  .status-dot.pending { @apply bg-yellow-400 shadow-[0_0_8px_rgba(250,204,21,0.5)] animate-pulse; }
+  .status-dot.error { @apply bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.5)]; }
+
+  .tab-active {
+    @apply text-white border-b-2 border-solana-purple;
+  }
+
+  .tab-inactive {
+    @apply text-aurora-text hover:text-white transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-aurora-darker border border-aurora-border text-white placeholder-aurora-text focus:outline-none focus:border-solana-purple/50 focus:ring-1 focus:ring-solana-purple/30 transition-all;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+/* Solana Wallet Adapter Overrides */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, #9945FF 0%, #7c3aed 100%) !important;
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  height: 44px !important;
+  padding: 0 24px !important;
+  transition: all 0.3s ease !important;
+}
+
+.wallet-adapter-button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 30px -8px rgba(153, 69, 255, 0.5) !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: #1e2128 !important;
+  border: 1px solid #2a2d35 !important;
+  border-radius: 20px !important;
+}
+
+.wallet-adapter-modal-title {
+  color: white !important;
+  font-family: 'Inter', sans-serif !important;
+}
